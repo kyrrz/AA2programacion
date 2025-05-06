@@ -107,7 +107,6 @@ public class DogDaoImpl implements DogDao {
     }
 
     public ArrayList<Dog> search(String searchTerm) {
-        // TODO
         return null;
     }
     @Override
