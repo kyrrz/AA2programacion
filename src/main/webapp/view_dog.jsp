@@ -10,7 +10,6 @@
 <%@ include file="includes/navbar_users.jsp"%>
 
 <%
-  // TODO Controlar el fallo cuando dog_id no pueda parsearse como entero
   int dogId = Integer.parseInt(request.getParameter("dog_id"));
   Database database = new Database();
   database.connect();
