@@ -13,6 +13,7 @@
 <%
 } else if (role.equals("admin")) {
 %>
+<%@include file="navbar_users.jsp"%>
 <%@include file="navbar_admins.jsp"%>
 <%
   }

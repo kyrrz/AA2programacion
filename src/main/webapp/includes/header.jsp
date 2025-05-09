@@ -19,7 +19,7 @@
 
 <header data-bs-theme="dark">
   <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
+    <div class="container text-decoration-none">
       <a href="/shelter" class="navbar-brand d-flex align-items-center">
         <strong>Adopty!</strong>
       </a>
@@ -34,9 +34,19 @@
       %>
       <a href="/shelter/login.jsp" title="Iniciar sesión"><img src="./images/user.png" height="50" width="50"></a>
       <%
-      } else {
+      } else if (role.equals("user")){
       %>
-      <a href="/shelter/logout" title="Cerrar sesión"><img src="./images/logout.jpg" height="50" width="50"></a>
+      <div>
+        <a class="text-decoration-none" href="/shelter/logout" title="Cerrar sesión">Logout</a>
+        <a class="text-decoration-none"  href="/shelter/myprofile.jsp" title="My Profile"><img src="./images/user.png" height="50" width="50"></a>
+      </div>
+      <%
+        } else if (role.equals("admin")){
+      %>
+      <div>
+        <a class="text-decoration-none" href="/shelter/logout" title="Cerrar sesión">Logout</a>
+        <a class="nav-item" href="/shelter/myprofile.jsp" title="My Profile"><img src="./images/user.png" height="50" width="50"></a>
+      </div>
       <%
         }
       %>

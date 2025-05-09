@@ -56,13 +56,4 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
-    public void init(){
-        System.out.println("Servlet init");
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Servlet doGet");
-        response.setContentType("text/plain");
-        response.getWriter().write("Login servlet is working!");
-    }
 }

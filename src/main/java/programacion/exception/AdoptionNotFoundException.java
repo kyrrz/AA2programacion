@@ -1,4 +1,4 @@
 package programacion.exception;
 
-public class AdoptionNotFoundException {
+public class AdoptionNotFoundException extends Throwable {
 }

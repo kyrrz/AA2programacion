@@ -8,7 +8,9 @@
 
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/navbar_users.jsp"%>
-
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 <%
   int dogId = Integer.parseInt(request.getParameter("dog_id"));
   Database database = new Database();
@@ -19,7 +21,7 @@
 %>
 <div class="container d-flex justify-content-center">
   <div class="card" style="width: 50rem;">
-    <img src="./images/<%= dog.getImage() %>" class="card-img-top" alt="...">
+    <img class="img-thumbnail" src="/shelter_images/<%= dog.getImage() %>" style="width: 100%; height: auto">
     <div class="card-body">
       <h5 class="card-title"><%= dog.getName() %></h5>
       <p class="card-text"><%= dog.getBreed() %></p>
@@ -37,8 +39,8 @@
       <%
       } else if (role.equals("admin")) {
       %>
-      <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-outline-warning">En Adopcion</a>
-      <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-outline-danger">Eliminar</a>
+      <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-warning">Editar</a>
+      <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
       <%
         } else {
       %>
@@ -47,6 +49,9 @@
         }
       %>
 
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </div>
