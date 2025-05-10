@@ -7,6 +7,14 @@
 
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/navbar_users.jsp"%>
+
+
+<script>
+  function confirmDelete() {
+    return confirm("¿Estás seguro de que quieres eliminar este perro?");
+  }
+</script>
+
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -39,7 +47,7 @@
       } else if (role.equals("admin")) {
       %>
       <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-warning">Editar</a>
-      <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+      <a onclick="return confirmDelete()" href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
       <%
         } else {
       %>

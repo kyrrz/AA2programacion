@@ -118,7 +118,7 @@ public class EditDogServlet extends HttpServlet {
         if (request.getParameter("name").isEmpty()) {
             errors.add("El nombre es un campo obligatorio");
         }
-        if ((request.getParameter("weight").isEmpty()) || (!request.getParameter("weight").matches("[0-9][0-9].[0-9]*"))) {
+        if ((request.getParameter("weight").isEmpty()) || (!request.getParameter("weight").matches("^[0-9]+(\\.[0-9]{1,3})?$"))) {
             errors.add("El peso es un campo numérico");
         }
         // TODO más validaciones

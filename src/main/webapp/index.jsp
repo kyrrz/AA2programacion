@@ -12,7 +12,11 @@
 <%
     String search = request.getParameter("search");
 %>
-
+<script>
+    function confirmDelete() {
+        return confirm("¿Estás seguro de que quieres eliminar este perro??");
+    }
+</script>
 <div class="album py-5 bg-body-tertiary">
     <div class="container mb-5">
         <form method="get" action="<%= request.getRequestURI() %>">
@@ -59,7 +63,7 @@
                                 %>
                                 <a href="view_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-secondary">Detalles</a>
                                 <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-warning">Modificar</a>
-                                <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+                                <a onclick="return confirmDelete()" href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
                                 <%
                                     }
                                 %>

@@ -11,7 +11,12 @@
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/navbar.jsp"%>
 <div class="album py-5 bg-body-tertiary">
+    <script>
+        function confirmDelete() {
+            return confirm("¿Estás seguro de que quieres eliminar esta adopción?");
+        }
 
+    </script>
 <%
     Database database = new Database();
     database.connect();
@@ -51,7 +56,7 @@
             <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-warning">Editar Perro</a>
             <a href="edit_admin_user.jsp?user_id=<%= user.getId() %>" class="btn btn-sm btn-warning">Editar User</a>
             <a href="edit_adoption.jsp?adoption_id=<%= adoption.getId() %>" class="btn btn-sm btn-warning">Editar Adoption</a>
-            <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+            <a onclick="return confirmDelete()" ="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
             <%
             } else {
             %>

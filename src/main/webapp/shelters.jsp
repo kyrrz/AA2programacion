@@ -9,7 +9,11 @@
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>
 
-
+<script>
+  function confirmDelete() {
+    return confirm("¿Estás seguro de que quieres eliminar este refugio?");
+  }
+</script>
 
 <%
   String search = request.getParameter("search");
@@ -58,7 +62,7 @@
                  if (role.equals("admin")) {
                 %>
                 <a href="edit_shelter.jsp?shelter_id=<%= shelter.getId()  %>" class="btn btn-sm btn-warning">Modificar</a>
-                <a href="delete_shelter?shelter_id=<%= shelter.getId()  %>" class="btn btn-sm btn-danger">Eliminar</a>
+                <a onclick="return confirmDelete()" href="delete_shelter?shelter_id=<%= shelter.getId()  %>" class="btn btn-sm btn-danger">Eliminar</a>
                 <%
                   }
                 %>

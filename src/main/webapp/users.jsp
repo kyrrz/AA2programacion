@@ -8,7 +8,11 @@
 
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>
-
+<script>
+  function confirmDelete() {
+    return confirm("¿Estás seguro de que quieres eliminar este usuario?");
+  }
+</script>
 <%
   if ((currentSession.getAttribute("role") == null || !currentSession.getAttribute("role").equals("admin"))) {
     response.sendRedirect("/shelter/login.jsp");
@@ -53,7 +57,7 @@
               <div class="btn-group">
                 <a href="view_user.jsp?user_id=<%= user.getId() %>" class="btn btn-sm btn-secondary">Info</a>
                 <a href="edit_admin_user.jsp?user_id=<%= user.getId() %>" class="btn btn-sm btn-warning">Admin</a>
-                <a href="delete_user?user_id=<%= user.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+                <a onclick="return confirmDelete()" href="delete_user?user_id=<%= user.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
               </div>
               <small class="text-body-secondary"> <%= user.getRole() %> </small>
             </div>

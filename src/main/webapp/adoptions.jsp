@@ -11,7 +11,11 @@
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>
 
-
+<script>
+    function confirmDelete() {
+        return confirm("¿Estás seguro de que quieres eliminar esta adopción??");
+    }
+</script>
 
 <%
     String search = request.getParameter("search");
@@ -75,7 +79,7 @@
                    } else if (role.equals("admin")) {
              %><a href="view_adoption.jsp?adoption_id=<%= adoption.getId() %>" class="btn btn-sm btn-secondary">Mas info</a>
              <a href="edit_adoption.jsp?adoption_id=<%= adoption.getId()%>" class="btn btn-sm btn-warning">Modificar</a>
-             <a href="delete_adoption?adoption_id=<%= adoption.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+             <a onclick="return confirmDelete()" href="delete_adoption?adoption_id=<%= adoption.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
              <%
                }
              %>
