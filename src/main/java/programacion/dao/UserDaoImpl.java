@@ -1,9 +1,6 @@
 package programacion.dao;
 
-
-import programacion.exception.DogNotFoundException;
 import programacion.exception.UserNotFoundException;
-import programacion.model.Dog;
 import programacion.model.User;
 
 import java.sql.*;

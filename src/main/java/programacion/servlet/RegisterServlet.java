@@ -3,7 +3,6 @@ package programacion.servlet;
 import programacion.dao.UserDao;
 import programacion.dao.UserDaoImpl;
 import programacion.database.Database;
-import programacion.exception.UserNotFoundException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

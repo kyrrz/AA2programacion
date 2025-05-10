@@ -1,11 +1,8 @@
 package programacion.dao;
 
 import programacion.exception.UserNotFoundException;
-import programacion.model.Dog;
 import programacion.model.User;
 
-
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

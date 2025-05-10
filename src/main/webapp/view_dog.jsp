@@ -3,7 +3,6 @@
 <%@ page import="programacion.dao.DogDaoImpl" %>
 <%@ page import="programacion.model.Dog" %>
 <%@ page import="programacion.exception.DogNotFoundException" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.util.DateUtils" %>
 
 <%@ include file="includes/header.jsp"%>

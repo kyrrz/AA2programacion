@@ -3,11 +3,8 @@
 <%@ page import="programacion.dao.DogDaoImpl" %>
 <%@ page import="programacion.model.Dog" %>
 <%@ page import="java.util.List" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.dao.DogDao" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.io.File" %>
 
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>

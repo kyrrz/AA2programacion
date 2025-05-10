@@ -3,7 +3,6 @@
 <%@ page import="programacion.dao.ShelterDaoImpl" %>
 <%@ page import="programacion.model.Shelter" %>
 <%@ page import="programacion.exception.ShelterNotFoundException" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.util.DateUtils" %>
 <%@ page import="programacion.dao.ShelterDao" %>
 <%@ page import="java.sql.SQLException" %>

@@ -2,10 +2,7 @@
 <%@ page import="programacion.model.Shelter" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="programacion.exception.ShelterNotFoundException" %>
-<%@ page import="programacion.model.Dog" %>
 <%@ page import="programacion.dao.*" %>
-<%@ page import="programacion.model.User" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@include file="includes/header.jsp"%>

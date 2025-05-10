@@ -1,26 +1,19 @@
 package programacion.servlet;
 
-import programacion.dao.DogDao;
-import programacion.dao.DogDaoImpl;
+
 import programacion.dao.UserDao;
 import programacion.dao.UserDaoImpl;
 import programacion.database.Database;
-import programacion.model.Dog;
 import programacion.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 @WebServlet("/edit_user")
 @MultipartConfig

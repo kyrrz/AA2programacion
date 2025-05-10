@@ -2,9 +2,6 @@ package programacion.dao;
 
 import programacion.exception.AdoptionNotFoundException;
 import programacion.model.Adoption;
-import programacion.model.Dog;
-import programacion.model.Shelter;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

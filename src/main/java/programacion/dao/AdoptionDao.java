@@ -2,7 +2,6 @@ package programacion.dao;
 
 import programacion.exception.AdoptionNotFoundException;
 import programacion.model.Adoption;
-import programacion.model.Shelter;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

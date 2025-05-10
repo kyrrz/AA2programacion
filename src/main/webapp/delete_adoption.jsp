@@ -1,7 +1,4 @@
 <%@ page import="programacion.database.Database" %>
-<%@ page import="programacion.dao.DogDao" %>
-<%@ page import="programacion.dao.DogDaoImpl" %>
-<%@ page import="programacion.model.Dog" %>
 <%@ page import="programacion.model.Adoption" %>
 <%@ page import="programacion.dao.AdoptionDao" %>
 <%@ page import="programacion.dao.AdoptionDaoImpl" %>

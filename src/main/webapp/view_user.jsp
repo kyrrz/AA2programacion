@@ -2,9 +2,7 @@
 <%@ page import="programacion.database.Database" %>
 <%@ page import="programacion.model.User" %>
 <%@ page import="programacion.exception.UserNotFoundException" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.util.DateUtils" %>
-<%@ page import="programacion.model.Adoption" %>
 <%@ page import="programacion.dao.*" %>
 <%@ page import="programacion.model.Dog" %>
 

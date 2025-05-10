@@ -1,13 +1,7 @@
 package programacion.dao;
 
-
 import programacion.exception.ShelterNotFoundException;
-
-
-import programacion.model.Adoption;
-import programacion.model.Dog;
 import programacion.model.Shelter;
-import programacion.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;

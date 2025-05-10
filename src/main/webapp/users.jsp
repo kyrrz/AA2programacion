@@ -3,10 +3,8 @@
 <%@ page import="programacion.dao.UserDaoImpl" %>
 <%@ page import="programacion.model.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.dao.UserDao" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="java.util.ArrayList" %>
 
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>

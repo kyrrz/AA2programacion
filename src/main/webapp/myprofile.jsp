@@ -1,11 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="programacion.database.Database" %>
-<%@ page import="programacion.dao.DogDaoImpl" %>
-<%@ page import="programacion.model.Dog" %>
-<%@ page import="programacion.exception.DogNotFoundException" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.util.DateUtils" %>
-<%@ page import="programacion.dao.DogDao" %>
 <%@ page import="programacion.dao.UserDao" %>
 <%@ page import="programacion.dao.UserDaoImpl" %>
 <%@ page import="programacion.model.User" %>

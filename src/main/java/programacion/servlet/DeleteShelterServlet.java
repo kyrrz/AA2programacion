@@ -1,7 +1,5 @@
 package programacion.servlet;
 
-import programacion.dao.DogDaoImpl;
-import programacion.dao.DogDao;
 import programacion.dao.ShelterDao;
 import programacion.dao.ShelterDaoImpl;
 import programacion.database.Database;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 @WebServlet("/delete_shelter")
 public class DeleteShelterServlet extends HttpServlet {

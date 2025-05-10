@@ -1,12 +1,12 @@
-        <%@ page import="programacion.database.Database" %>
-        <%@ page import="programacion.model.Adoption" %>
+<%@ page import="programacion.database.Database" %>
+<%@ page import="programacion.model.Adoption" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="programacion.exception.AdoptionNotFoundException" %>
-        <%@ page import="programacion.model.Dog" %>
-        <%@ page import="programacion.dao.*" %>
-        <%@ page import="programacion.model.User" %>
-        <%@ page import="java.util.List" %>
-        <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="programacion.model.Dog" %>
+<%@ page import="programacion.dao.*" %>
+<%@ page import="programacion.model.User" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>

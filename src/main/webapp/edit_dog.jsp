@@ -1,4 +1,4 @@
-        <%@ page import="programacion.database.Database" %>
+<%@ page import="programacion.database.Database" %>
 <%@ page import="programacion.dao.DogDao" %>
 <%@ page import="programacion.dao.DogDaoImpl" %>
 <%@ page import="programacion.model.Dog" %>
@@ -7,9 +7,8 @@
 <%@ page import="programacion.dao.ShelterDao" %>
 <%@ page import="programacion.dao.ShelterDaoImpl" %>
 <%@ page import="programacion.model.Shelter" %>
-        <%@ page import="java.util.ArrayList" %>
-        <%@ page import="java.util.List" %>
-        <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>

@@ -1,7 +1,6 @@
 <%@ page import="programacion.database.Database" %>
 <%@ page import="programacion.dao.UserDao" %>
 <%@ page import="programacion.dao.UserDaoImpl" %>
-<%@ page import="programacion.model.Dog" %>
 <%@ page import="programacion.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
