@@ -77,6 +77,10 @@
         });
     });
 
+    function confirmModify() {
+        return confirm("¿Estás seguro de que quieres modificar este refugio?");
+    }
+
 </script>
 <div class="container d-flex justify-content-center">
     <div class="card" style="width: 50rem;">
@@ -120,7 +124,7 @@
 
 
             <div class="input-group mb-3">
-                <input class="btn btn-primary" type="submit" value="Guardar">
+                <input onclick="return confirmModify()" class="btn btn-primary" type="submit" value="Guardar">
             </div>
 
             <input type="hidden" name="action" value="<%=action%>">

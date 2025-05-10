@@ -79,6 +79,12 @@
         });
     });
 
+    function confirmModify() {
+        return confirm("¿Estás seguro de que quieres modificar este usuario?");
+    }
+    function confirmDelete() {
+        return confirm("¿Estás seguro de que quieres eliminar este usuario?");
+    }
 </script>
 <div class="album py-5 bg-body-tertiary">
     <div class="container d-flex justify-content-center ">
@@ -155,9 +161,9 @@
             %>
 
             <div class="input-group mb-3 d-flex justify-content-between w-100">
-                <input class="btn btn-primary" type="submit" value="Guardar">
+                <input onclick="return confirmModify()" class="btn btn-primary" type="submit" value="Guardar">
                 <p></p>
-                <a href="delete_user?user_id=<%= user.getId() %>" class="btn btn-danger">Eliminar</a>
+                <a onclick="return confirmDelete()" href="delete_user?user_id=<%= user.getId() %>" class="btn btn-danger">Eliminar</a>
             </div>
 
             <input type="hidden" name="action" value="<%= action %>">

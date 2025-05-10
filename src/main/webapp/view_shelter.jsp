@@ -9,6 +9,13 @@
 
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/navbar.jsp"%>
+
+<script>
+  function confirmDelete() {
+    return confirm("¿Estás seguro de que quieres eliminar este refugio?");
+  }
+</script>
+
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -46,7 +53,7 @@
       %>
       <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic example">
       <a href="edit_shelter.jsp?shelter_id=<%= shelter.getId() %>" class="btn btn-sm btn-warning">Editar</a>
-      <a href="delete_shelter?shelter_id=<%= shelter.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+      <a onclick="return confirmDelete()" href="delete_shelter?shelter_id=<%= shelter.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
       </div>
       <%
       } else {
