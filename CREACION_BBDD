@@ -1,0 +1,50 @@
+-- Creamos la tabla shelter
+CREATE TABLE shelter (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    address VARCHAR(150),
+    city VARCHAR(100),
+    number INT,
+    foundation_date DATE,
+    rating DECIMAL(3,2) CHECK (rating BETWEEN 0 AND 5),
+    active BOOLEAN
+);
+-- Creamos la tabla dog
+CREATE TABLE dog (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_shelter INT,
+    name VARCHAR(100),
+    breed VARCHAR(100),
+    birth_date DATE,
+    gender VARCHAR(20),
+    weight DECIMAL(5,2),
+    castrated BOOLEAN,
+    image VARCHAR(100),
+    FOREIGN KEY (id_shelter) REFERENCES shelter(id) 
+);
+-- Creamos la tabla user
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    phone BIGINT,
+    city VARCHAR(100),
+    birth_date DATE,
+    canAdopt BOOLEAN,
+    rating DECIMAL(4,2) CHECK (rating BETWEEN 0 AND 10),
+    role VARCHAR(100),
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(200)
+);
+-- Creamos la tabla adopcion
+CREATE TABLE adoption (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_dog INT,
+    id_user INT,
+    adoption_date DATE,
+    accepted BOOLEAN,
+    donation DECIMAL(10,2),
+    notes VARCHAR(400),
+    FOREIGN KEY (id_dog) REFERENCES dog(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE CASCADE
+);
