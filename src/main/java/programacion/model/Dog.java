@@ -12,6 +12,7 @@ public class Dog {
     private String name;
     private String breed;
     private Date birth_date;
+    private String gender;
     private double weight;
     private boolean castrated;
     private String image;

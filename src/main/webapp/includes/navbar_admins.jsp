@@ -10,10 +10,12 @@
     <section class="py-1 text-center container">
         <div class="row py-lg-1">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h3 class="fw-light">Gestión</h3>
+                <h3 class="fw-light">Admin panel</h3>
                 <p>
-                    <a href="edit_game.jsp" class="btn btn-primary">Registrar un juego</a>
-                    <a href="view_orders.jsp" class="btn btn-info">Ver pedidos</a>
+                    <a href="users.jsp" class="btn btn-info">Administrar usuarios</a>
+                    <a href="edit_dog.jsp" class="btn btn-info">Añadir perro</a>
+                    <a href="edit_shelter.jsp" class="btn btn-info">Añadir refugio</a>
+                    <a href="edit_adoption.jsp" class="btn btn-info">Añadir adoption</a>
                 </p>
             </div>
         </div>

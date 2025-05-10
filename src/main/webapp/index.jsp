@@ -3,10 +3,8 @@
 <%@ page import="programacion.dao.DogDaoImpl" %>
 <%@ page import="programacion.model.Dog" %>
 <%@ page import="java.util.List" %>
-<%@ page import="programacion.util.CurrencyUtils" %>
 <%@ page import="programacion.dao.DogDao" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="java.util.ArrayList" %>
 
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/navbar.jsp"%>
@@ -26,6 +24,7 @@
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <%
+
                 Database database = new Database();
                 try {
                     database.connect();
@@ -41,27 +40,31 @@
             %>
             <div class="col">
                 <div class="card shadow-sm">
-                    <img class="img-thumbnail" src="./images/<%= dog.getImage() %>" >
+                    <img class="img-thumbnail" src="/shelter_images/<%= dog.getImage() %>" style="width: 100%; height: 225px; object-fit: cover;">
                     <div class="card-body">
                         <h4 class="card-text"><%= dog.getName() %></h4>
                         <p class="card-text"><%= dog.getBreed() %></p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="view_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-outline-secondary">Mas info</a>
                                 <%
-                                    if (role.equals("user")) {
+                                    if (role.equals("anonymous")) {
                                 %>
-                                <a href="add_to_cart?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-outline-secondary">Comprar</a>
+                                <a href="login.jsp" class="btn btn-sm btn-secondary">Log In para ver</a>
+                                <%
+                                    } else if (role.equals("user")) {
+                                %>
+                                <a href="view_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-secondary">Detalles</a>
                                 <%
                                 } else if (role.equals("admin")) {
                                 %>
-                                <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-outline-warning">Modificar</a>
-                                <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                                <a href="view_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-secondary">Detalles</a>
+                                <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-warning">Modificar</a>
+                                <a href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
                                 <%
                                     }
                                 %>
                             </div>
-                            <small class="text-body-secondary">Peso: <%= dog.getWeight() %> kg</small>
+                            <small class="text-body-secondary"> <%= dog.getGender() %> </small>
                         </div>
                     </div>
                 </div>
