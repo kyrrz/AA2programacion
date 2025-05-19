@@ -10,12 +10,15 @@
   if (role.equals("user")) {
 %>
 <%@include file="navbar_users.jsp"%>
+<div class="album py-5">
 <%
 } else if (role.equals("admin")) {
 %>
 <%@include file="navbar_users.jsp"%>
 <%@include file="navbar_admins.jsp"%>
 <%
-  }
-%>
+  } else {%>
+    <div class="album py-5">
+<% }%>
+
 

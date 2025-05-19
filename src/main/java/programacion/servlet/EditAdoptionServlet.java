@@ -40,9 +40,10 @@ public class EditAdoptionServlet extends HttpServlet {
         String dogId = request.getParameter("id_dog");
         String userId = request.getParameter("id_user");
         String adoption_date = request.getParameter("adoption_date");
-        String accepted = request.getParameter("accepted");
+        String acceptedParam = request.getParameter("accepted");
         String donation = request.getParameter("donation");
         String notes  = request.getParameter("notes");
+        boolean accepted = "on".equals(acceptedParam) || "1".equals(acceptedParam) || "true".equals(acceptedParam);
 
         try {
             Database database = new Database();
@@ -52,7 +53,7 @@ public class EditAdoptionServlet extends HttpServlet {
             adoption.setId_dog(Integer.parseInt(dogId));
             adoption.setId_user(Integer.parseInt(userId));
             adoption.setAdoption_date(Date.valueOf(adoption_date));
-            adoption.setAccepted(Boolean.parseBoolean(accepted));
+            adoption.setAccepted(accepted);
             adoption.setDonation(Double.parseDouble(donation));
             adoption.setNotes(notes);
 

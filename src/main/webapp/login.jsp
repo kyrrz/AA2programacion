@@ -40,7 +40,7 @@
       </div>
 
       <div class="input-group mb-3">
-        <input class="btn btn-primary" type="submit" value="Iniciar sesión">
+        <input class="btn btn-primary rounded-pill" type="submit" value="Iniciar sesión">
       </div>
 
       <div class="input-group mb-3">

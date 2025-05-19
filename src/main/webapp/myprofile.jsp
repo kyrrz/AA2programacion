@@ -9,7 +9,7 @@
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/navbar.jsp"%>
 
-<div class="album py-5 bg-body-tertiary">
+<div class="album ">
   <div class="container">
 <%
   String username = currentSession.getAttribute("username").toString();
@@ -25,7 +25,7 @@
       <h5 class="card-title fw-bold"><%= user.getUsername() %></h5>
       <p class="card-text fw-normal"><%= user.getCity() %> <small class="fw-light fst-italic"> <%= user.getRating()%></small></p>
     </div>
-    <ul class="list-group list-group-flush">
+    <ul class=" list-group-flush ">
       <li class="list-group-item">Nombre: <%= user.getName() %></li>
       <li class="list-group-item">Email: <%= user.getEmail() %></li>
       <li class="list-group-item">Fecha de nacimiento: <%= DateUtils.format( user.getBirth_date()) %></li>

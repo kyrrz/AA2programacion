@@ -13,12 +13,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adopty</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
 <header data-bs-theme="dark">
-  <div class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="navbar header shadow-sm">
     <div class="container text-decoration-none">
       <a href="/shelter" class="navbar-brand d-flex align-items-center">
         <strong>Adopty!</strong>
@@ -37,7 +39,7 @@
       } else if (role.equals("user")){
       %>
       <div>
-        <a class="text-decoration-none" href="/shelter/logout" title="Cerrar sesión">Logout</a>
+        <a class="text-decoration-none white" href="/shelter/logout" title="Cerrar sesión">Logout</a>
         <a class="text-decoration-none"  href="/shelter/myprofile.jsp" title="My Profile"><img src="./images/user.png" height="50" width="50"></a>
       </div>
       <%

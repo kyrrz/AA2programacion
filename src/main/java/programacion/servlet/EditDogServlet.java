@@ -48,8 +48,9 @@ public class EditDogServlet extends HttpServlet {
         String birth_date = request.getParameter("birth_date");
         String gender = request.getParameter("gender");
         String weight = request.getParameter("weight");
-        String castrated = request.getParameter("castrated");
+        String castratedParam = request.getParameter("castrated");
         Part image = request.getPart("image");
+        boolean castrated = "on".equals(castratedParam) || "1".equals(castratedParam) || "true".equals(castratedParam);
 
 
         try {
@@ -63,12 +64,10 @@ public class EditDogServlet extends HttpServlet {
             dog.setBirth_date(Date.valueOf(birth_date));
             dog.setGender(gender);
             dog.setWeight(Double.parseDouble(weight));
-            dog.setCastrated(Boolean.parseBoolean(castrated));
+            dog.setCastrated(castrated);
 
 
 
-
-            // Procesa la imagen del perro
             if (action.equals("Registrar")) {
                 String filename = "default.jpg";
                 String imagePath = "C:/Users/kyrrz/Desktop/apache-tomcat-9.0.104/webapps/shelter_images";
@@ -117,6 +116,10 @@ public class EditDogServlet extends HttpServlet {
         errors = new ArrayList<>();
         if (request.getParameter("name").isEmpty()) {
             errors.add("El nombre es un campo obligatorio");
+        }
+
+        if (request.getParameter("id_shelter").isEmpty()) {
+            errors.add("El refugio es un campo obligatorio");
         }
         if ((request.getParameter("weight").isEmpty()) || (!request.getParameter("weight").matches("^[0-9]+(\\.[0-9]{1,3})?$"))) {
             errors.add("El peso es un campo numérico");

@@ -10,7 +10,7 @@
 
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/navbar.jsp"%>
-<div class="album py-5 bg-body-tertiary">
+<div class="album">
     <script>
         function confirmDelete() {
             return confirm("¿Estás seguro de que quieres eliminar esta adopción?");
@@ -44,7 +44,7 @@
             <h5 class="card-title fw-bold"><%= user.getUsername() %></h5>
             <p class="card-text fw-normal"><%= user.getName() %> <small class="fw-light fst-italic"> <%= user.getCity()%></small></p>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class=" list-group-flush ">
             <li class="list-group-item">Comentarios: <%= adoption.getNotes() %></li>
             <li class="list-group-item">Donation: <%= adoption.getDonation() %> Euros</li>
             <li class="list-group-item">Fecha de adopcion: <%= DateUtils.format(adoption.getAdoption_date()) %></li>
@@ -56,7 +56,7 @@
             <a href="edit_dog.jsp?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-warning">Editar Perro</a>
             <a href="edit_admin_user.jsp?user_id=<%= user.getId() %>" class="btn btn-sm btn-warning">Editar User</a>
             <a href="edit_adoption.jsp?adoption_id=<%= adoption.getId() %>" class="btn btn-sm btn-warning">Editar Adoption</a>
-            <a onclick="return confirmDelete()" ="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
+            <a onclick="return confirmDelete()" href="delete_dog?dog_id=<%= dog.getId() %>" class="btn btn-sm btn-danger">Eliminar</a>
             <%
             } else {
             %>
