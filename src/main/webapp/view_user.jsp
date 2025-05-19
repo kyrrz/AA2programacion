@@ -15,7 +15,7 @@
     }
 </script>
 
-<div class="album py-5 bg-body-tertiary">
+<div class="album  ">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 <%
@@ -37,7 +37,7 @@
             <h5 class="card-title"><%=user.getUsername()%></h5>
             <p class="card-text"><%=user.getName()%></p>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class=" list-group-flush ">
             <li class="list-group-item">Email: <%=user.getEmail()%></li>
             <li class="list-group-item">City: <%=user.getCity()%></li>
             <li class="list-group-item">Fecha de nacimiento: <%=DateUtils.format(user.getBirth_date())%></li>

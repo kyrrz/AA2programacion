@@ -86,7 +86,7 @@
         return confirm("¿Estás seguro de que quieres eliminar este usuario?");
     }
 </script>
-<div class="album py-5 bg-body-tertiary">
+<div class="album ">
     <div class="container d-flex justify-content-center ">
         <!-- TODO Validar formulario -->
         <form class=" row g-2 w-50" id="user-form" method="post" enctype="multipart/form-data">
@@ -138,11 +138,7 @@
                 if (user.getRole().equals("admin")) {
             %>
                 <h1 class="h3 mb-3 fw-normal">Admin section</h1>
-                <div class="form-floating col-md-6">
-                    <input type="text" id="floatingTextarea" name="canAdopt" class="form-control" placeholder="canAdopt"
-                           value="<%= user != null ? user.isCanAdopt() : "" %>">
-                    <label for="floatingTextarea">Puede adoptar? (true/false)</label>
-                </div>
+
 
 
                 <div class="form-floating col-md-6">
@@ -156,14 +152,28 @@
                            value="<%= user != null ? user.getRole() : "" %>">
                     <label for="floatingTextarea">Role</label>
                 </div>
+
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="form-check">
+                    <input id="activebox" class="form-check-input" type="checkbox" name="canAdopt"
+                        <%= user != null && user.isCanAdopt() ? "checked" : "" %>>
+                    <label class="form-check-label" for="activebox"> Puede adoptar</label>
+                </div>
+            </div>
+            <%
+                } else {
+            %>
+            <input type="hidden" name="canAdpot" value="<%= user.isCanAdopt() %>">
+            <input type="hidden" name="rating" value="<%= user.getRating() %>">
+            <input type="hidden" name="role" value="<%= user.getRole() %>">
             <%
                 }
             %>
 
             <div class="input-group mb-3 d-flex justify-content-between w-100">
-                <input onclick="return confirmModify()" class="btn btn-primary" type="submit" value="Guardar">
+                <input onclick="return confirmModify()" class="btn btn-primary rounded-pill" type="submit" value="Guardar">
                 <p></p>
-                <a onclick="return confirmDelete()" href="delete_user?user_id=<%= user.getId() %>" class="btn btn-danger">Eliminar</a>
+                <a onclick="return confirmDelete()" href="delete_user?user_id=<%= user.getId() %>" class="btn btn-danger rounded-pill">Eliminar</a>
             </div>
 
             <input type="hidden" name="action" value="<%= action %>">

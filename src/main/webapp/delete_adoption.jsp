@@ -66,7 +66,7 @@
   });
 </script>
 
-<div class="album py-5 bg-body-tertiary">
+<div class="album ">
   <div class="container d-flex justify-content-center">
 
 

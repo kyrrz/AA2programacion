@@ -21,7 +21,7 @@
     String search = request.getParameter("search");
 %>
 
-<div class="album py-5 bg-body-tertiary">
+<div class="album ">
     <div class="container mb-5">
         <form method="get" action="<%= request.getRequestURI() %>">
             <input type="text" name="search" id="search" class="form-control" placeholder="Buscar" value="<%= search != null ? search : "" %>">

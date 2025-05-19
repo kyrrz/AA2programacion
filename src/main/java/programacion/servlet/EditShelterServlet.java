@@ -43,7 +43,8 @@ public class EditShelterServlet extends HttpServlet {
         String number = request.getParameter("number");
         String foundation_date = request.getParameter("foundation_date");
         String rating = request.getParameter("rating");
-        String active = request.getParameter("active");
+        String activeParam = request.getParameter("active");
+        boolean active = "on".equals(activeParam) || "1".equals(activeParam) || "true".equals(activeParam);
 
 
 
@@ -58,7 +59,7 @@ public class EditShelterServlet extends HttpServlet {
             shelter.setNumber(Integer.parseInt(number));
             shelter.setFoundation_date(Date.valueOf(foundation_date));
             shelter.setRating(Double.parseDouble(rating));
-            shelter.setActive(Boolean.parseBoolean(active));
+            shelter.setActive(active);
 
             if (action.equals("Modificar")) {
                 shelter.setId(Integer.parseInt(request.getParameter("id")));
@@ -100,7 +101,10 @@ public class EditShelterServlet extends HttpServlet {
         if (request.getParameter("city").isEmpty()) {
             errors.add("La ciudad es un campo obligatorio");
         }
-        // TODO más validaciones
+
+        if (request.getParameter("rating").isEmpty() || (Double.parseDouble(request.getParameter("rating")) > 5 || (Double.parseDouble(request.getParameter("rating")) < 0))) {
+            errors.add("El rating tiene que estar entre 0 y 5");
+        }
 
         return errors.isEmpty();
     }

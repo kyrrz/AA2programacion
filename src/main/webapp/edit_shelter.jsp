@@ -116,15 +116,17 @@
                        value="<%=shelter != null ? shelter.getRating() : ""%>">
                 <label for="floatingTextarea">Valoracion</label>
             </div>
-            <div class="form-floating col-md-6">
-                <input type="text" id="floatingTextarea" name="active" class="form-control" placeholder="Notes"
-                       value="<%=shelter != null ? shelter.isActive() : ""%>">
-                <label for="floatingTextarea">Activo? (true/false)</label>
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="form-check">
+                    <input id="activebox" class="form-check-input" type="checkbox" name="active"
+                        <%= shelter != null && shelter.isActive() ? "checked" : "" %>>
+                    <label class="form-check-label" for="activebox"> Activo</label>
+                </div>
             </div>
 
 
             <div class="input-group mb-3">
-                <input onclick="return confirmModify()" class="btn btn-primary" type="submit" value="Guardar">
+                <input onclick="return confirmModify()" class="btn btn-primary rounded-pill" type="submit" value="Guardar">
             </div>
 
             <input type="hidden" name="action" value="<%=action%>">

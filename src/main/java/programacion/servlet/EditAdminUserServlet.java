@@ -44,11 +44,12 @@ public class EditAdminUserServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String city = request.getParameter("city");
         String birth_date = request.getParameter("birth_date");
-        String canAdopt = request.getParameter("canAdopt");
+        String canAdoptParam = request.getParameter("canAdopt");
         String rating = request.getParameter("rating");
         String role = request.getParameter("role");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        boolean canAdopt = "on".equals(canAdoptParam) || "1".equals(canAdoptParam) || "true".equals(canAdoptParam);
 
 
 
@@ -66,7 +67,7 @@ public class EditAdminUserServlet extends HttpServlet {
             user.setPhone(Integer.parseInt(phone));
             user.setCity(city);
             user.setBirth_date(Date.valueOf(birth_date));
-            user.setCanAdopt(Boolean.parseBoolean(canAdopt));
+            user.setCanAdopt(canAdopt);
             user.setRating(Double.parseDouble(rating));
             user.setRole(role);
             user.setUsername(username);

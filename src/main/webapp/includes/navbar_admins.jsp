@@ -7,15 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <main>
-    <section class="py-1 text-center container">
+    <section class="py-1 text-center container pt-4">
         <div class="row py-lg-1">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h3 class="fw-light">Admin panel</h3>
                 <p>
-                    <a href="users.jsp" class="btn btn-info">Administrar usuarios</a>
-                    <a href="edit_dog.jsp" class="btn btn-info">Añadir perro</a>
-                    <a href="edit_shelter.jsp" class="btn btn-info">Añadir refugio</a>
-                    <a href="edit_adoption.jsp" class="btn btn-info">Añadir adoption</a>
+                    <a href="users.jsp" class="btn btn-primary">Administrar usuarios</a>
+                    <a href="edit_dog.jsp" class="btn btn-primary">Añadir perro</a>
+                    <a href="edit_shelter.jsp" class="btn btn-primary">Añadir refugio</a>
+                    <a href="edit_adoption.jsp" class="btn btn-primary">Añadir adoption</a>
                 </p>
             </div>
         </div>

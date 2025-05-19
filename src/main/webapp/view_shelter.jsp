@@ -16,7 +16,7 @@
   }
 </script>
 
-<div class="album py-5 bg-body-tertiary">
+<div class="album ">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 <%
@@ -38,7 +38,7 @@
       <h5 class="card-title fw-bold"><%= shelter.getName() %></h5>
       <p class="card-text fw-normal"><%= shelter.getCity() %> <small class="fw-light fst-italic"> <%= shelter.getRating()%></small></p>
     </div>
-    <ul class="list-group list-group-flush">
+    <ul class=" list-group-flush ">
       <li class="list-group-item">Address: <%= shelter.getAddress() %></li>
       <li class="list-group-item">Activo: <%= shelter.isActive() %></li>
       <li class="list-group-item">Fecha de creacion: <%= DateUtils.format(shelter.getFoundation_date()) %></li>

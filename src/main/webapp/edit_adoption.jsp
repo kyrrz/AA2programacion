@@ -23,6 +23,7 @@
     System.out.println("Adoption id :" + adoptionId);
 
     Dog dog = null;
+    User user = null;
     if (adoptionId != null) {
         action = "Modificar";
         Database database = new Database();
@@ -35,6 +36,8 @@
         try {
             adoption = adoptionDao.getById(Integer.parseInt(adoptionId));
             DogDao dogDao = new DogDaoImpl(database.getConnection());
+            UserDao userDao = new UserDaoImpl(database.getConnection());
+            user = userDao.get(adoption.getId_user());
             dog = dogDao.get(adoption.getId_dog());
         } catch (SQLException | AdoptionNotFoundException e) {
             throw new RuntimeException(e);
@@ -102,93 +105,89 @@
     <form class="row g-2 p-5" id="adoption-form" method="post" enctype="multipart/form-data">
       <h1 class="h3 mb-3 fw-normal"><%=action%> una adopcion</h1>
       <div class="form-floating col-md-6">
-        <input type="text" id="floatingTextarea" name="id_dog" class="form-control" placeholder="Dog Id"
-               value="<%=adoption != null ? adoption.getId_dog() : ""%>">
+          <select class="form-control" name="id_dog" id="floatingTextarea">
+              <option value="" disabled selected> Selecciona el perro </option>
+              <%
+                  if (action.equals("Modificar")){
+                      %>
+                      <option value="<%=dog.getId() %>" selected> <%= dog.getName() %> ,  <%= dog.getBreed() %> , <%= dog.getGender() %></option>
+
+              <%
+                  } else {
+                  Database db = new Database();
+                  try {
+                      db.connect();
+                  } catch (ClassNotFoundException | SQLException e) {
+                      throw new RuntimeException(e);
+                  }
+                  DogDao dogDao = new DogDaoImpl(db.getConnection());
+                  List<Dog> dogList = dogDao.getNonAdopted();
+                  for (Dog dogL : dogList) {
+              %>
+              <option value="<%=dogL.getId() %>"> <%= dogL.getName() %> ,  <%= dogL.getBreed() %> , <%= dogL.getGender() %></option>
+
+              <% }} %>
+          </select>
           <label for="floatingTextarea">Dog ID</label>
-      </div>
-      <div class="form-floating col-md-6">
-        <input type="text" id="floatingTextarea" name="id_user" class="form-control" placeholder="User Id"
-               value="<%=adoption != null ? adoption.getId_user() : ""%>">
+        </div>
+        <div class="form-floating col-md-6">
+          <select class="form-control" name="id_user" id="floatingTextarea">
+              <option value="" disabled selected> Selecciona el usuario </option>
+              <%
+                  if (action.equals("Modificar")){
+              %>
+              <option value="<%=user.getId() %>" selected> <%= user.getName() %> ,  <%= user.getUsername() %> </option>
+              %>
+              <%
+              } else {
+
+                  Database db = new Database();
+                  try {
+                      db.connect();
+                  } catch (ClassNotFoundException | SQLException e) {
+                      throw new RuntimeException(e);
+                  }
+                      UserDao userDao = new UserDaoImpl(db.getConnection());
+              List<User> userList = userDao.getAll();
+              for (User userL : userList) {
+
+          %>
+              <option value="<%=userL.getId() %>"> <%= userL.getName() %>, <small> <%= userL.getUsername() %> </small></option>
+          <% }} %>
+          </select>
           <label for="floatingTextarea">User ID</label>
-      </div>
-      <div class="form-floating col-md-6">
+        </div>
+        <div class="form-floating col-md-6">
         <input type="date" id="floatingTextarea" name="adoption_date" class="form-control" placeholder="Adoption Date"
                value="<%=adoption != null ? adoption.getAdoption_date() : ""%>">
           <label for="floatingTextarea">Fecha de adopcion</label>
-      </div>
-      <div class="form-floating col-md-6">
-        <input type="text" id="floatingTextarea" name="accepted" class="form-control" placeholder="Aceptado"
-               value="<%=adoption != null ? adoption.isAccepted() : ""%>">
-          <label for="floatingTextarea">Aceptada? (true/false)</label>
-      </div>
-      <div class="form-floating col-md-6">
+        </div>
+
+
+        <div class="form-floating col-md-6">
         <input type="text" id="floatingTextarea" name="donation" class="form-control" placeholder="Donation"
                value="<%=adoption != null ? adoption.getDonation() : ""%>">
           <label for="floatingTextarea">Donacion</label>
-      </div>
-      <div class="form-floating col-md-6">
+        </div>
+        <div class="form-floating col-md-6">
         <input type="text" id="floatingTextarea" name="notes" class="form-control" placeholder="Notes"
                value="<%=adoption != null ? adoption.getNotes() : ""%>">
           <label for="floatingTextarea">Notas</label>
-      </div>
-
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="form-check ">
+                <input id="activebox" class="form-check-input" type="checkbox" name="accepted"
+                    <%= adoption != null && adoption.isAccepted() ? "checked" : "" %>>
+                <label class="form-check-label" for="activebox"> Aceptado</label>
+            </div>
+        </div>
 
       <div class="input-group mb-3">
-        <input onclick="return confirmModify()" class="btn btn-primary" type="submit" value="Guardar">
+        <input onclick="return confirmModify()" class="btn btn-primary rounded-pill" type="submit" value="Guardar">
       </div>
 
       <input type="hidden" name="action" value="<%=action%>">
         <div id="result"></div>
-        <table class="table table-striped table-bordered mt-4">
-            <thead class="table-dark">
-            <tr>
-                <th scope="col">Dog Id</th>
-                <th scope="col">Dog Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <%
-                Database db = new Database();
-                try {
-                    db.connect();
-                } catch (ClassNotFoundException | SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                DogDao dogDao = new DogDaoImpl(db.getConnection());
-                UserDao userDao = new UserDaoImpl(db.getConnection());
-                List<Dog> dogList = dogDao.getNonAdopted();
-                for (Dog dogL : dogList) {
-
-            %>
-            <tr>
-                <td><%= dogL.getId() %></td>
-                <td><%= dogL.getName() %></td>
-            </tr>
-            <% } %>
-            </tbody>
-        </table>
-        <table class="table table-striped table-bordered mt-4">
-            <thead class="table-dark">
-            <tr>
-                <th scope="col">User Id</th>
-                <th scope="col">Username</th>
-                <th scope="col">Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <%
-                List<User> userList = userDao.getAll();
-                for (User userL : userList) {
-
-            %>
-            <tr>
-                <td><%= userL.getId() %></td>
-                <td><%= userL.getUsername() %></td>
-                <td><%= userL.getName() %></td>
-            </tr>
-            <% } %>
-            </tbody>
-        </table>
       <%
           if (action.equals("Modificar")) {
       %>

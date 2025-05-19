@@ -95,15 +95,32 @@
       return confirm("¿Estás seguro de que quieres modificar este perro?");
   }
 </script>
+
 <div class="container d-flex justify-content-center">
   <div class="card" style="width: 50rem;">
     <img class="img-thumbnail" src="/shelter_images/<%=dogImage%>" style="width: 100%; height: auto;">
     <form class="row g-2 p-5" id="dog-form" method="post" enctype="multipart/form-data">
       <h1 class="h3 mb-3 fw-normal"><%=action%> un perro</h1>
       <div class="form-floating col-md-6">
-        <input type="text" id="floatingTextarea" name="id_shelter" class="form-control" placeholder="Shelter_Id"
-               value="<%=dog != null ? dog.getId_shelter() : ""%>">
-          <label for="floatingTextarea">Shelter Id</label>
+          <select class="form-control" id="floatingTextarea" name="id_shelter" required>
+              <option value="" disabled selected> Selecciona el refugio </option>
+                  <%
+                      Database db = new Database();
+                      try {
+                          db.connect();
+                      } catch (ClassNotFoundException | SQLException e) {
+                          throw new RuntimeException(e);
+                      }
+                      ShelterDao shelterDao = new ShelterDaoImpl(db.getConnection());
+                      List<Shelter> shelterList = shelterDao.getAll();
+                      for (Shelter shelterL : shelterList) {
+                  %>
+              <option value="<%=shelterL.getId() %>"><%= shelterL.getId() %>, <%= shelterL.getName() %> </option>
+
+                  <% } %>
+
+          </select>
+          <label for="shelterSelect">Refugio</label>
       </div>
       <div class="form-floating col-md-6">
         <input type="text" id="floatingTextarea" name="name" class="form-control" placeholder="Nombre"
@@ -125,16 +142,12 @@
                value="<%=dog != null ? dog.getBirth_date() : ""%>">
           <label for="floatingTextarea">Fecha de nacimiento</label>
       </div>
-        <%
-            if (action.equals("Registrar")) {
-        %>
+
       <div class="form-floating col-md-6">
         <input type="file" id="floatingTextarea" name="image" class="form-control" placeholder="Imagen">
           <label for="floatingTextarea">Imagen</label>
       </div>
-        <%
-        }
-        %>
+
       <div class="form-floating col-md-6">
         <input type="text" id="floatingTextarea" name="weight" class="form-control" placeholder="Weight"
                value="<%=dog != null ? dog.getWeight() : ""%>">
@@ -142,52 +155,22 @@
       </div>
 
 
-      <div class="form-floating col-md-6">
-        <input type="text" id="floatingTextarea" name="castrated" class="form-control" placeholder="castrated"
-               value="<%=dog != null ? dog.isCastrated() : ""%>">
-          <label for="floatingTextarea">Castrado? (true/false)</label>
-      </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="form-check">
+                <input id="activebox" class="form-check-input" type="checkbox" name="castrated"
+                    <%= dog != null && dog.isCastrated() ? "checked" : "" %>>
+                <label class="form-check-label" for="activebox"> Castrado</label>
+            </div>
+        </div>
 
-      <div class="input-group mb-3">
-        <input onclick="return confirmModify()" class="btn btn-primary" type="submit" value="Guardar">
+
+        <div class="input-group mb-3">
+        <input onclick="return confirmModify()" class="btn btn-primary rounded-pill" type="submit" value="Guardar">
       </div>
 
       <input type="hidden" name="action" value="<%=action%>">
         <div id="result"></div>
-        <table class="table table-striped table-bordered mt-4">
-          <thead class="table-dark">
-          <tr>
-              <th scope="col">Shelter Id</th>
-              <th scope="col">Shelter Name</th>
-              <th scope="col">¿Activo?</th>
-          </tr>
-          </thead>
-          <tbody>
-          <%
-              Database db = new Database();
-              try {
-                  db.connect();
-              } catch (ClassNotFoundException | SQLException e) {
-                  throw new RuntimeException(e);
-              }
-              ShelterDao shelterDao = new ShelterDaoImpl(db.getConnection());
-              List<Shelter> shelterList = shelterDao.getAll();
-              for (Shelter shelterL : shelterList) {
-          %>
-          <tr>
-              <td><%= shelterL.getId() %></td>
-              <td><%= shelterL.getName() %></td>
-              <td>
-                  <% if (shelterL.isActive()) { %>
-                  <span class="badge bg-success">Sí</span>
-                  <% } else { %>
-                  <span class="badge bg-danger">No</span>
-                  <% } %>
-              </td>
-          </tr>
-          <% } %>
-          </tbody>
-        </table>
+
       <%
           if (action.equals("Modificar")) {
       %>

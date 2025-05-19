@@ -11,4 +11,9 @@ public class DateUtils {
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
         return sdf.format(date);
     }
+
+    public static String bul(Boolean bool) {
+        return Boolean.TRUE.equals(bool) ? "Si" : "No";
+    }
+
 }
